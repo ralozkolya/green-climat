@@ -1,0 +1,31 @@
+/*	NOTO SANS	*/
+
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic);
+
+
+/*	NOTO SANS GEORGIAN	*/
+
+@import url(https://fonts.googleapis.com/earlyaccess/notosansgeorgian.css);
+
+
+@font-face {
+    font-family: 'BPG Nino Mtavruli';
+    src: url('../font/bpg-nino-mtavruli-webfont.eot'); /* IE9 Compat Modes */
+    src: url('../font/bpg-nino-mtavruli-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../font/bpg-nino-mtavruli-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../font/bpg-nino-mtavruli-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../font/bpg-nino-mtavruli-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../font/bpg-nino-mtavruli-webfont.svg#bpg_nino_mtavruliregular') format('svg'); /* Legacy iOS */
+}
+
+
+/*	HELPER MIXINS	*/
+
+@mixin noto() {
+	font-family: 'Noto Sans', 'Noto Sans Georgian', Arial, Sans-serif;	
+}
+
+@mixin bpg-nino() {
+	font-family: 'BPG Nino Mtavruli', Arial, Sans-serif;
+	text-transform: uppercase;
+}

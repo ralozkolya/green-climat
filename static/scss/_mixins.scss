@@ -1,0 +1,12 @@
+@mixin gradient($start, $end) {
+	background: $start;
+	background: -webkit-linear-gradient($start,  $end);
+	background: -moz-linear-gradient($start,  $end);
+	background: -ms-linear-gradient($start,  $end);
+	background: -o-linear-gradient($start,  $end);
+	background: linear-gradient($start,  $end);
+}
+
+@mixin shadow() {
+	box-shadow: 0px 2px 3px 0px rgba(24, 24, 24, 0.5);
+}

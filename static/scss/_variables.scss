@@ -1,0 +1,20 @@
+/* LAYOUT */
+
+$header-height: 250px;
+
+$body-bg-image: url('../img/bg_left.png'), url('../img/bg_right.png');
+$body-bg-size: 30%;
+
+$header-bg-image: $body-bg-image;
+$header-bg-size: $body-bg-size + 5;
+$header-padding: 25px 0 0 0;
+
+$footer-height: 90px;
+
+$content-padding: 20px 0 $footer-height + 20 0;
+
+
+/* COLORS */
+
+$header-gradient-start: rgb(44,186,66);
+$header-gradient-end: rgb(125,213,121);

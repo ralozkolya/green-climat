@@ -81,3 +81,19 @@ function get_lang_code($lang) {
 		case RU: return 'ru';
 	}
 }
+
+function get_lang_label($lang) {
+	switch($lang) {
+		case EN: return 'ENG';
+		case GE: return 'ქარ';
+		case RU: return 'РУС';
+	}
+}
+
+function get_alternative_langs() {
+	$langs = [GE, EN, RU];
+	$current = get_lang();
+	return array_filter($langs, function($lang) use ($current) {
+		return $current !== $lang;
+	});
+}

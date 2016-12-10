@@ -9,10 +9,14 @@ class MY_Controller extends CI_Controller {
 	];
 
 	public function __construct() {
-
 		parent::__construct();
-
+		$this->data['redirect_base'] = base_url();
 		set_language();
+	}
+
+	public function set_language($lang) {
+		set_language($lang);
+		$this->redirect();
 	}
 
 	protected function redirect($path = NULL) {
