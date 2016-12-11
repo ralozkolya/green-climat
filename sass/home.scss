@@ -1,0 +1,54 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/fonts';
+@import 'partials/unslider';
+
+.products {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.product-container {
+    margin: 0 auto;
+    max-width: 300px;
+
+    &:nth-child(odd) > .product {
+     @include gradient($light-green, $dark-green, right);
+    }
+
+    &:nth-child(even) > .product {
+     @include gradient($dark-grey, $yellow, right);
+    }
+}
+
+.product {
+    @include bpg-nino();
+    position: relative;
+    padding-top: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 18px;
+    margin-bottom: 20px;
+
+    > .image {
+        position: absolute;
+        width: calc(100% - (#{$top-products-padding} * 2));
+        height: calc(100% - (#{$top-products-padding} * 2));
+        top: $top-products-padding;
+        left: $top-products-padding;
+        border-radius: 50%;
+        @include background-image();
+    }
+
+    > .name {
+        position: absolute;
+        width: calc(100% - (#{$top-products-padding} * 2));
+        height: calc(50% - #{$top-products-padding});
+        bottom: $top-products-padding;
+        left: $top-products-padding;
+        padding: 10px;
+        border-radius: 0 0 500px 500px;
+        background: rgba(255, 255, 255, 0.6);
+        font-weight: bold;
+    }
+}

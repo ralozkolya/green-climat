@@ -1,7 +1,5 @@
 /* LAYOUT */
 
-$header-height: 250px;
-
 $body-bg-image: url('../img/bg_left.png'), url('../img/bg_right.png');
 $body-bg-size: 30%;
 
@@ -13,14 +11,21 @@ $footer-height: 85px;
 
 $content-padding: 20px 0 $footer-height + 20 0;
 
+$banners-arrows-position: 10px;
+$banners-arrows-font-size: 100px;
+
+$green-header-font-size: 30px;
+
+$top-products-padding: 8px;
+
 
 /* COLORS */
 
-$light-green: rgb(125,213,121);
-$dark-green: rgb(44,186,66);
-
-$header-gradient-start: $dark-green;
-$header-gradient-end: $light-green;
+$light-green: #7dd579;
+$dark-green: #2cba42;
+$yellow: #f1c40f;
+$light-grey: #ecf0f1;
+$dark-grey: #b1b1b1;
 
 
 /* BREAK POINTS */

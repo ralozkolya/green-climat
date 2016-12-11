@@ -1,17 +1,17 @@
-@mixin gradient($start, $end) {
+@mixin gradient($start, $end, $direction: bottom) {
 	background: $start;
-	background: -webkit-linear-gradient($start,  $end);
-	background: -moz-linear-gradient($start,  $end);
-	background: -ms-linear-gradient($start,  $end);
-	background: -o-linear-gradient($start,  $end);
-	background: linear-gradient($start,  $end);
+	background: -webkit-linear-gradient($direction, $start, $end);
+	background: -moz-linear-gradient($direction, $start, $end);
+	background: -ms-linear-gradient($direction, $start, $end);
+	background: -o-linear-gradient($direction, $start, $end);
+	background: linear-gradient(to $direction, $start, $end);
 }
 
 @mixin shadow() {
 	box-shadow: 0px 2px 3px 0px rgba(24, 24, 24, 0.5);
 }
 
-@mixin center-absolute() {
+@mixin center-absolute-h() {
 	position: absolute;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
@@ -19,4 +19,20 @@
 	-ms-transform: translateX(-50%);
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
+}
+
+@mixin center-absolute-v() {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin background-image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

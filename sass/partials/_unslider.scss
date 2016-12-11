@@ -1,0 +1,52 @@
+@import 'partials/mixins';
+
+.unslider {
+  position: relative;
+}
+
+.unslider-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.unslider-nav ol {
+  list-style: none;
+  text-align: center;
+}
+.unslider-nav ol li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 2px 4px;
+  background: $yellow;
+  border-radius: 50%;
+  overflow: hidden;
+  text-indent: -999em;
+  cursor: pointer;
+}
+.unslider-nav ol li.unslider-active {
+  background: none;
+  cursor: default;
+  border: solid 2px $light-grey;
+}
+
+.slide {
+  padding-top: 43%;
+  @include background-image();
+}
+
+.arrow {
+  @include center-absolute-v();
+  color: $yellow;
+  font-size: $banners-arrows-font-size;
+  cursor: pointer;
+
+  &.left {
+    left: $banners-arrows-position;
+  }
+
+  &.right {
+    right: $banners-arrows-position;
+  }
+}

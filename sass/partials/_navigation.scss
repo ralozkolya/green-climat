@@ -14,7 +14,7 @@
 			border-top-right-radius: 50px 35px;
 
 			&:hover, &.active {
-				@include gradient($header-gradient-start, $header-gradient-end);
+				@include gradient($dark-green, $light-green);
 				@include shadow();
 				color: white;
 			}
