@@ -16,5 +16,15 @@ $content-padding: 20px 0 $footer-height + 20 0;
 
 /* COLORS */
 
-$header-gradient-start: rgb(44,186,66);
-$header-gradient-end: rgb(125,213,121);
+$light-green: rgb(125,213,121);
+$dark-green: rgb(44,186,66);
+
+$header-gradient-start: $dark-green;
+$header-gradient-end: $light-green;
+
+
+/* BREAK POINTS */
+
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
