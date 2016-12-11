@@ -6,6 +6,13 @@
 .products {
     margin-top: 70px;
     margin-bottom: 70px;
+
+    @media (max-width: $sm - 1) {
+        > .row {
+            white-space: nowrap;
+            overflow-x: scroll;
+        }
+    }
 }
 
 .product-container {
@@ -18,6 +25,19 @@
 
     &:nth-child(even) > .product {
      @include gradient($dark-grey, $yellow, right);
+    }
+
+    @media (max-width: $sm - 1) {
+        display: inline-block;
+        width: 200px;
+
+        &:first-child {
+            margin-left: 50px;
+        }
+
+        &:last-child {
+            margin-right: 50px;
+        }
     }
 }
 
