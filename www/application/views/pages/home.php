@@ -23,11 +23,13 @@
 					<?php foreach($top_products as $p): ?>
 						<?php $url = static_url("uploads/products/{$p->image}"); ?>
 						<div class="col-sm-4 col-md-3 text-center product-container">
-							<div class="product">
-								<div class="image"
-									style="background-image: url(<?php echo $url ?>)"></div>
-								<div class="name"><?php echo $p->name; ?></div>
-							</div>
+							<a href="#" class="unstyled">
+								<div class="product">
+									<div class="image"
+										style="background-image: url(<?php echo $url ?>)"></div>
+									<div class="name"><?php echo $p->name; ?></div>
+								</div>
+							</a>
 						</div>
 					<?php endforeach; ?>
 				</div>

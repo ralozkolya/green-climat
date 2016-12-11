@@ -19,11 +19,11 @@
     margin: 0 auto;
     max-width: 300px;
 
-    &:nth-child(odd) > .product {
+    &:nth-child(odd) .product {
      @include gradient($light-green, $dark-green, right);
     }
 
-    &:nth-child(even) > .product {
+    &:nth-child(even) .product {
      @include gradient($dark-grey, $yellow, right);
     }
 
