@@ -67,6 +67,9 @@ img {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
+	padding: 25px;
+	color: white;
+	@include gradient($header-gradient-start, $header-gradient-end);
 }
 
 
