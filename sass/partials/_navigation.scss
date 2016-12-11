@@ -1,23 +1,51 @@
 .navigation {
+	display: none;
 	list-style: none;
 	padding: 0;
-	margin: 10px 0 0 0;
+	margin: 0;
 	vertical-align: bottom;
 
 	> li {
-		display: inline-block;
 
 		> a {
 			display: inline-block;
-			padding: 40px 10px;
-			border-top-left-radius: 50px 35px;
-			border-top-right-radius: 50px 35px;
+			width: 100%;
+			padding: 10px;
 
 			&:hover, &.active {
 				@include gradient($dark-green, $light-green);
-				@include shadow();
 				color: white;
 			}
 		}
 	}
+
+	@media (min-width: $sm) {
+		margin: 10px 0 0 0;
+		display: block !important;
+
+		> li {
+			display: inline-block;
+
+			> a {
+				padding: 40px 10px;
+				border-top-left-radius: 50px 35px;
+				border-top-right-radius: 50px 35px;
+
+				&:hover, &.active {
+					@include shadow();
+				}
+			}
+		}
+	}
+}
+
+.navbar-toggle {
+	float: none;
+	color: black;
+	border-color: black;
+	margin: 15px 0;
+}
+
+.icon-bar {
+	background: black;
 }

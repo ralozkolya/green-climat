@@ -8,6 +8,13 @@
 		<a href="<?php echo locale_url(); ?>" class="unstyled"><img src="<?php echo static_url('img/logo.png?v='.V); ?>" alt="Logo"></a>
 	</div>
 	<div class="text-center">
+		<div class="visible-xs">
+			<button type="button" class="navbar-toggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
 		<ul class="navigation">
 			<?php foreach($navigation as $n): ?>
 				<li>

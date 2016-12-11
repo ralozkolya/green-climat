@@ -28,7 +28,7 @@ img {
 	background-color: white;
 	background-image: $header-bg-image;
 	background-repeat: repeat-y;
-	background-position: bottom left, bottom right;
+	background-position: center left, center right;
 	background-size: $header-bg-size;
 	font-weight: bold;
 	@include bpg-nino();
@@ -43,6 +43,10 @@ img {
 		margin-bottom: 25px;
 		padding: 10px 0;
 
+		> a {
+			margin: 0 5px;
+		}
+
 		@media (min-width: $sm) {
 			@include shadow();
 			position: absolute;
@@ -54,6 +58,7 @@ img {
 
 			> a {
 				display: block;
+				margin: 0;
 			}
 		}
 	}

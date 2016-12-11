@@ -12,9 +12,9 @@
 	<div class="wrapper">
 
 		<?php $this->load->view('elements/header'); ?>
-		<?php $this->load->view('elements/banners'); ?>
 		
 		<div class="content">
+			<?php $this->load->view('elements/banners'); ?>
 			<h1 class="text-center">
 				<div class="green-header"><?php echo lang('top_products'); ?></div>
 			</h1>
