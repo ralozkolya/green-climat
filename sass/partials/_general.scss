@@ -68,13 +68,67 @@ img {
 }
 
 .footer {
-	height: $footer-height;
+	@include gradient($dark-green, $light-green);
+	@include bpg-nino();
+	text-align: center;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	padding: 25px;
 	color: white;
-	@include gradient($dark-green, $light-green);
+
+	> .left, > .center, > .right {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	> .left {
+		text-transform: none;
+	}
+
+	.social {
+		display: inline-block;
+		width: $social-icon-width;
+		height: $social-icon-width;
+		background-image: url('../img/social.png');
+
+		&.facebook {
+			background-position: 0 0;
+		}
+
+		&.twitter {
+			background-position: -$social-icon-width 0;
+		}
+
+		&.youtube {
+			background-position: -($social-icon-width * 2) 0;
+		}
+
+		&.gplus {
+			background-position: -($social-icon-width * 3) 0;
+		}
+	}
+
+	@media (min-width: $sm) {
+		height: $footer-height;
+
+		> .left, > .center, > .right {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		> .left {
+			text-align: left;
+		}
+
+		> .center {
+			line-height: $social-icon-width;
+		}
+
+		> .right {
+			text-align: right;
+		}
+	}
 }
 
 
