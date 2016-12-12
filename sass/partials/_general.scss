@@ -23,6 +23,7 @@ img {
 }
 
 .header {
+	@include bpg-nino();
 	position: relative;
 	z-index: 50;
 	background-color: white;
@@ -30,8 +31,6 @@ img {
 	background-repeat: repeat-y;
 	background-position: center left, center right;
 	background-size: $header-bg-size;
-	font-weight: bold;
-	@include bpg-nino();
 
 	@media (min-width: $sm) {
 		padding: $header-padding;
