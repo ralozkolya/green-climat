@@ -65,6 +65,10 @@ img {
 
 .content {
 	padding: $content-padding;
+
+	@media (min-width: $sm) {
+		padding-bottom: $footer-height + 20;
+	}
 }
 
 .footer {
