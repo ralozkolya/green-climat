@@ -30,7 +30,7 @@
   </defs>
   <path class="path" d="M106,105
     A390,400
-    45 1,0
+    0 1,0
     830,105"/>
   <g transform="translate(106,105)">
     <circle class="circle" r="95"/>
