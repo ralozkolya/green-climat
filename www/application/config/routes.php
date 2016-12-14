@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang = '('.GE.'|'.EN.'|'.RU.')';
 
 $route[$lang] = 'site';
+$route[$lang.'/(:any)'] = 'site/$2';
 
 $route['default_controller'] = 'site';
 $route['404_override'] = '';

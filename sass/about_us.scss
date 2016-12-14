@@ -1,0 +1,12 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/fonts';
+
+svg {
+	max-width: 100%;
+}
+
+.circle-text {
+	@include archy();
+	font-size: 24px;
+}

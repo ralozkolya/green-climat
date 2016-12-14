@@ -14,6 +14,13 @@ class Page extends MY_Model {
 		return $this->get_localized_list();
 	}
 
+	public function get_localized($slug) {
+
+		$this->db->where('slug', $slug);
+		$this->select_localized();
+		return $this->db->get($this->table)->row();
+	}
+
 	public function get_localized_list($limit = NULL, $offset = NULL) {
 
 		$this->select_localized();

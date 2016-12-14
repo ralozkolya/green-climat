@@ -18,6 +18,25 @@
          url('../font/bpg-nino-mtavruli-webfont.svg#bpg_nino_mtavruliregular') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+    font-family: 'ArchyEDT';
+    src: url('../font/archyedt-thin-webfont.eot'); /* IE9 Compat Modes */
+    src: url('../font/archyedt-thin-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../font/archyedt-thin-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../font/archyedt-thin-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../font/archyedt-thin-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../font/archyedt-thin-webfont.svg#archyedt-thinregular') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Bebas Neue Book';
+    src: url('../font/bebas-neue-book.eot'); /* IE9 Compat Modes */
+    src: url('../font/bebas-neue-book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../font/bebas-neue-book.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../font/bebas-neue-book.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../font/bebas-neue-book.svg#archyedt-thinregular') format('svg'); /* Legacy iOS */
+}
+
 
 /*	HELPER MIXINS	*/
 
@@ -28,5 +47,11 @@
 @mixin bpg-nino() {
 	font-family: 'BPG Nino Mtavruli', Arial, Sans-serif;
 	text-transform: uppercase;
-    font-weight: bold
+    font-weight: bold;
+}
+
+@mixin archy() {
+    font-family: 'ArchyEDT', 'Bebas Neue Book', Arial, Sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
 }
