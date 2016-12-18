@@ -153,3 +153,8 @@ img {
 	border-radius: 10px;
 	font-size: $green-header-font-size;
 }
+
+.yellow-header {
+	@include bpg-nino();
+	color: $yellow;
+}

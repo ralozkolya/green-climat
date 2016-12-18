@@ -21,7 +21,6 @@ class Site extends MY_Controller {
 	}
 
 	public function about_us() {
-
 		$slug = 'about_us';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['categories'] = [
@@ -34,6 +33,14 @@ class Site extends MY_Controller {
 		];
 		$this->data['highlighted'] = $slug;
 		$this->view('pages/about_us');
+	}
+
+	public function service($page = 1) {
+		$slug = 'service';
+		$this->data['page'] = $this->get_page($slug);
+		$this->data['services'] = $this->get_services($page);
+		$this->data['highlighted'] = $slug;
+		$this->view('pages/service');
 	}
 
 	private function get_navigation() {
@@ -69,6 +76,18 @@ class Site extends MY_Controller {
 	private function get_page($slug) {
 		$this->load->model('Page');
 		return $this->Page->get_localized($slug);
+	}
+
+	private function get_services($page) {
+
+		$page = abs($page - 1);
+
+		$limit = SERVICES_PER_PAGE;
+		$offset = $page * $limit;
+
+		$this->load->model('Service');
+		return $this->Service->get_list($limit, $offset);
+
 	}
 
 }

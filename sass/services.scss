@@ -1,0 +1,37 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/fonts';
+
+.service {
+	@include shadow();
+	@include bpg-nino();
+	margin: 15px auto;
+	padding: 10px;
+	background: white;
+	max-width: 300px;
+	transition: background-color .3s;
+
+	> .image {
+		@include background-image();
+		padding-top: 65%;
+	}
+
+	> .title {
+		margin: 10px 0;
+		color: $light-green;
+		transition: color .3s;
+	}
+
+	> .desc {
+		height: 100px;
+		overflow: hidden
+	}
+
+	&:hover {
+		background-color: $light-green;
+
+		> .title {
+			color: white;
+		}
+	}
+}

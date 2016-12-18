@@ -10,6 +10,7 @@ class Product extends MY_Model {
 	public function get_top() {
 		$this->select_localized();
 		$this->join_images();
+		$this->db->group_by("{$this->table}.id");
 		$this->db->where(['top' => 1]);
 		return parent::get_list();
 	}
