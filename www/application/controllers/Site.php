@@ -35,12 +35,20 @@ class Site extends MY_Controller {
 		$this->view('pages/about_us');
 	}
 
-	public function service($page = 1) {
-		$slug = 'service';
+	public function services($page = 1) {
+		$slug = 'services';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['services'] = $this->get_services($page);
 		$this->data['highlighted'] = $slug;
-		$this->view('pages/service');
+		$this->view('pages/services');
+	}
+
+	public function service($id) {
+		$this->data['service'] = $this->get_service($id);
+		$this->data['gallery'] = $this->get_service_images($id);
+		$this->data['path'] = static_url('uploads/services');
+		$this->data['highlighted'] = 'services';
+		$this->view('pages/item');
 	}
 
 	private function get_navigation() {
@@ -79,7 +87,6 @@ class Site extends MY_Controller {
 	}
 
 	private function get_services($page) {
-
 		$page = abs($page - 1);
 
 		$limit = SERVICES_PER_PAGE;
@@ -87,7 +94,16 @@ class Site extends MY_Controller {
 
 		$this->load->model('Service');
 		return $this->Service->get_list($limit, $offset);
+	}
 
+	private function get_service($id) {
+		$this->load->model('Service');
+		return $this->Service->get_localized($id);
+	}
+
+	private function get_service_images($id) {
+		$this->load->model('Service');
+		return $this->Service->get_gallery($id);
 	}
 
 }

@@ -1,0 +1,32 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/fonts';
+
+
+/* OVERRIDES */
+
+.fotorama {
+}
+
+.fotorama__stage {
+	@include shadow();
+	margin-bottom: 20px;
+	height: 200px !important;
+
+	@media (min-width: $md) {
+		height: 300px !important;
+	}
+}
+
+.fotorama__thumb {
+	@include shadow();
+	opacity: 0.7;
+}
+
+.fotorama__active > .fotorama__thumb {
+	opacity: 1;
+}
+
+.fotorama__thumb-border {
+	display: none !important;
+}
