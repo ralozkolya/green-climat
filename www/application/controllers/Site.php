@@ -35,6 +35,11 @@ class Site extends MY_Controller {
 		$this->view('pages/about_us');
 	}
 
+	public function products() {
+		$this->data['highlighted'] = 'products';
+		$this->view('pages/under_construction');
+	}
+
 	public function services() {
 		$slug = 'services';
 		$this->data['page'] = $this->get_page($slug);
@@ -105,6 +110,13 @@ class Site extends MY_Controller {
 		$this->data['uploads_path'] = static_url('uploads/projects');
 		$this->data['highlighted'] = 'projects';
 		$this->view('pages/item');
+	}
+
+	public function contact() {
+		$slug = 'contact';
+		$this->data['page'] = $this->get_page($slug);
+		$this->data['highlighted'] = $slug;
+		$this->view('pages/contact');
 	}
 
 

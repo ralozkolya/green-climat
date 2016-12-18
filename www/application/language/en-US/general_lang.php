@@ -11,3 +11,6 @@ $lang['drainage'] = "Drainage";
 $lang['sewer'] = "Sewer";
 $lang['water_systems'] = "Water systems";
 $lang['heating_cooling'] = "Heating, cooling, ventilation";
+
+$lang['contact_info'] = "Contact information";
+$lang['contact_us'] = "Contact us";

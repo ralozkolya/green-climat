@@ -11,3 +11,6 @@ $lang['drainage'] = "დრენაჟი";
 $lang['sewer'] = "კანალიზაცია";
 $lang['water_systems'] = "წყლის სისტემები";
 $lang['heating_cooling'] = "Heating, cooling, ventilation";
+
+$lang['contact_info'] = "საკონტაქტო ინფორმაცია";
+$lang['contact_us'] = "დაგვიკავშირდით";

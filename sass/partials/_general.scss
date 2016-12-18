@@ -65,6 +65,7 @@ img {
 
 .content {
 	padding: $content-padding;
+	position: relative;
 
 	@media (min-width: $sm) {
 		padding-bottom: $footer-height + 50;
@@ -80,6 +81,7 @@ img {
 	bottom: 0;
 	padding: 25px;
 	color: white;
+	z-index: 70;
 
 	> .left, > .center, > .right {
 		padding-top: 5px;
