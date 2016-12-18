@@ -35,21 +35,80 @@ class Site extends MY_Controller {
 		$this->view('pages/about_us');
 	}
 
-	public function services($page = 1) {
+	public function services() {
 		$slug = 'services';
 		$this->data['page'] = $this->get_page($slug);
-		$this->data['services'] = $this->get_services($page);
+		$this->data['items'] = $this->get_list('Service');
+		$this->data['uploads_path'] = static_url('uploads/services');
+		$this->data['item_url'] = locale_url('service');
 		$this->data['highlighted'] = $slug;
-		$this->view('pages/services');
+		$this->view('pages/list');
 	}
 
 	public function service($id) {
-		$this->data['service'] = $this->get_service($id);
-		$this->data['gallery'] = $this->get_service_images($id);
-		$this->data['path'] = static_url('uploads/services');
+		$this->data['item'] = $this->get_item('Service', $id);
+		$this->data['gallery'] = $this->get_gallery('Service', $id);
+		$this->data['uploads_path'] = static_url('uploads/services');
 		$this->data['highlighted'] = 'services';
 		$this->view('pages/item');
 	}
+
+	public function news() {
+		$slug = 'news';
+		$this->data['page'] = $this->get_page($slug);
+		$this->data['items'] = $this->get_list('Post');
+		$this->data['uploads_path'] = static_url('uploads/news');
+		$this->data['item_url'] = locale_url('post');
+		$this->data['highlighted'] = $slug;
+		$this->view('pages/list');
+	}
+
+	public function post($id) {
+		$this->data['item'] = $this->get_item('Post', $id);
+		$this->data['gallery'] = $this->get_gallery('Post', $id);
+		$this->data['uploads_path'] = static_url('uploads/news');
+		$this->data['highlighted'] = 'news';
+		$this->view('pages/item');
+	}
+
+	public function partners() {
+		$slug = 'partners';
+		$this->data['page'] = $this->get_page($slug);
+		$this->data['items'] = $this->get_list('Partner');
+		$this->data['uploads_path'] = static_url('uploads/partners');
+		$this->data['item_url'] = locale_url('partner');
+		$this->data['highlighted'] = $slug;
+		$this->view('pages/list');
+	}
+
+	public function partner($id) {
+		$this->data['item'] = $this->get_item('Partner', $id);
+		$this->data['gallery'] = $this->get_gallery('Partner', $id);
+		$this->data['uploads_path'] = static_url('uploads/partners');
+		$this->data['highlighted'] = 'partners';
+		$this->view('pages/item');
+	}
+
+	public function projects() {
+		$slug = 'projects';
+		$this->data['page'] = $this->get_page($slug);
+		$this->data['items'] = $this->get_list('Project');
+		$this->data['uploads_path'] = static_url('uploads/projects');
+		$this->data['item_url'] = locale_url('project');
+		$this->data['highlighted'] = $slug;
+		$this->view('pages/list');
+	}
+
+	public function project($id) {
+		$this->data['item'] = $this->get_item('Project', $id);
+		$this->data['gallery'] = $this->get_gallery('Project', $id);
+		$this->data['uploads_path'] = static_url('uploads/projects');
+		$this->data['highlighted'] = 'projects';
+		$this->view('pages/item');
+	}
+
+
+	/*	PULLERS	*/
 
 	private function get_navigation() {
 		$this->load->model('Page');
@@ -86,24 +145,19 @@ class Site extends MY_Controller {
 		return $this->Page->get_localized($slug);
 	}
 
-	private function get_services($page) {
-		$page = abs($page - 1);
-
-		$limit = SERVICES_PER_PAGE;
-		$offset = $page * $limit;
-
-		$this->load->model('Service');
-		return $this->Service->get_list($limit, $offset);
+	private function get_list($type) {
+		$this->load->model($type);
+		return $this->$type->get_localized_list();
 	}
 
-	private function get_service($id) {
-		$this->load->model('Service');
-		return $this->Service->get_localized($id);
+	private function get_item($type, $id) {
+		$this->load->model($type);
+		return $this->$type->get_localized($id);
 	}
 
-	private function get_service_images($id) {
-		$this->load->model('Service');
-		return $this->Service->get_gallery($id);
+	private function get_gallery($type, $id) {
+		$this->load->model($type);
+		return $this->$type->get_gallery($id);
 	}
 
 }

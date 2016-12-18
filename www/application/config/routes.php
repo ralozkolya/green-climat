@@ -54,7 +54,7 @@ $lang = '('.GE.'|'.EN.'|'.RU.')';
 
 $route[$lang] = 'site';
 $route[$lang.'/(:any)'] = 'site/$2';
-$route[$lang.'/service/(:num)/(:any)'] = 'site/service/$2';
+$route[$lang.'/(service|post|project|partner)/(:num)/(:any)'] = 'site/$2/$3';
 
 $route['default_controller'] = 'site';
 $route['404_override'] = '';

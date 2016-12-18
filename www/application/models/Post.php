@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Service extends MY_Model {
+class Post extends MY_Model {
 
-	protected $table = 'services';
+	protected $table = 'news';
 	protected $slug = 'en_title';
-	protected $images_table = 'service_images';
+	protected $images_table = 'post_images';
 
 	public function get_localized($id) {
 		$this->select_localized();
@@ -41,8 +41,7 @@ class Service extends MY_Model {
 			"{$this->images_table}.image",
 		]);
 	}
-
 }
 
-/* End of file Service.php */
-/* Location: ./application/models/Service.php */
+/* End of file Post.php */
+/* Location: ./application/models/Post.php */

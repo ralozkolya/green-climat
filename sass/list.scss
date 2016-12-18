@@ -2,7 +2,7 @@
 @import 'partials/mixins';
 @import 'partials/fonts';
 
-.service {
+.item {
 	@include shadow();
 	@include bpg-nino();
 	margin: 15px auto;

@@ -8,7 +8,7 @@
 	<?php foreach($gallery as $g): ?>
 		<img
 			alt="<?php echo $g->image; ?>"
-			src="<?php echo "{$path}/{$g->image}"; ?>">
+			src="<?php echo "{$uploads_path}/{$g->image}"; ?>">
 	<?php endforeach; ?>
 </div>
 

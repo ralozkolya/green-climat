@@ -15,14 +15,16 @@
 		<div class="content">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-5 fotorama-container">
-						<?php $this->view('elements/gallery'); ?>
-					</div>
+					<?php if(!empty($gallery)): ?>
+						<div class="col-sm-5 fotorama-container">
+							<?php $this->view('elements/gallery'); ?>
+						</div>
+					<?php endif; ?>
 					<div class="col-sm-7 text-center">
 						<h2>
-							<div class="yellow-header"><?php echo $service->title; ?></div>
+							<div class="yellow-header"><?php echo $item->title; ?></div>
 						</h2>
-						<div><?php echo $service->body; ?></div>
+						<div><?php echo $item->body; ?></div>
 					</div>
 				</div>
 			</div>

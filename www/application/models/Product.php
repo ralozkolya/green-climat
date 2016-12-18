@@ -17,7 +17,7 @@ class Product extends MY_Model {
 
 	public function join_images() {
 		$this->db->join($this->images_table,
-			"{$this->images_table}.product = {$this->table}.id");
+			"{$this->images_table}.item = {$this->table}.id", 'left');
 	}
 
 	private function select_localized() {
