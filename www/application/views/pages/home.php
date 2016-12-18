@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo get_lang_code(get_lang()); ?>">
 <head>
-	<?php $this->load->view('elements/head'); ?>
+	<?php $this->view('elements/head'); ?>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/css/unslider.css">
 	<link rel="stylesheet" href="<?php echo static_url('css/home.css?v='.V); ?>">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/js/unslider-min.js"></script>
@@ -11,10 +11,10 @@
 
 	<div class="wrapper">
 
-		<?php $this->load->view('elements/header'); ?>
+		<?php $this->view('elements/header'); ?>
 		
 		<div class="content">
-			<?php $this->load->view('elements/banners'); ?>
+			<?php $this->view('elements/banners'); ?>
 			<h1 class="text-center">
 				<div class="green-header"><?php echo lang('top_products'); ?></div>
 			</h1>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		<?php $this->load->view('elements/footer'); ?>
+		<?php $this->view('elements/footer'); ?>
 
 	</div>
 
