@@ -8,5 +8,6 @@ $lang['heating'] = "Heating";
 $lang['conditioning'] = "Conditioning";
 $lang['ventilation'] = "Ventilation";
 $lang['drainage'] = "Drainage";
-$lang['canalisation'] = "Canalisation";
+$lang['sewer'] = "Sewer";
 $lang['water_systems'] = "Water systems";
+$lang['heating_cooling'] = "Heating, cooling, ventilation";

@@ -8,5 +8,6 @@ $lang['heating'] = "გათბობა";
 $lang['conditioning'] = "კონდიცირება";
 $lang['ventilation'] = "ვენტილაცია";
 $lang['drainage'] = "დრენაჟი";
-$lang['canalisation'] = "კანალიზაცია";
+$lang['sewer'] = "კანალიზაცია";
 $lang['water_systems'] = "წყლის სისტემები";
+$lang['heating_cooling'] = "Heating, cooling, ventilation";

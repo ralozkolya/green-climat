@@ -21,8 +21,17 @@ class Site extends MY_Controller {
 	}
 
 	public function about_us() {
+
 		$slug = 'about_us';
 		$this->data['page'] = $this->get_page($slug);
+		$this->data['categories'] = [
+			lang('water_systems'),
+			lang('sewer'),
+			lang('drainage'),
+			lang('ventilation'),
+			lang('conditioning'),
+			lang('heating'),
+		];
 		$this->data['highlighted'] = $slug;
 		$this->view('pages/about_us');
 	}

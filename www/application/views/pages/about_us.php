@@ -16,8 +16,11 @@
 			</h1>
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12 text-center">
+					<div class="col-xs-12 text-center hidden-xs">
 						<?php $this->load->view('elements/circles'); ?>
+					</div>
+					<div class="col-xs-12 visible-xs mobile-text">
+						<?php echo $page->body; ?>
 					</div>
 				</div>
 			</div>

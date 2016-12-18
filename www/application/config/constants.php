@@ -106,4 +106,4 @@ define('SUCCESS', 'success_message');
 define('ERROR', 'error_message');
 
 define('NO_REPLY', 'nikoloz@indiestudio.ge');
-define('INFO_MAIL', 'nikoloz@indiestudio.ge');
+define('INFO_MAIL', 'info@greenclimat.com');
