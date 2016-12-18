@@ -16,8 +16,6 @@
 }
 
 .product-container {
-    margin: 0 auto;
-    max-width: 300px;
 
     &:nth-child(odd) .product {
      @include gradient($light-green, $dark-green, right);
@@ -51,13 +49,13 @@
     margin-bottom: 20px;
 
     > .image {
+        @include background-image();
         position: absolute;
         width: calc(100% - (#{$top-products-padding} * 2));
         height: calc(100% - (#{$top-products-padding} * 2));
         top: $top-products-padding;
         left: $top-products-padding;
         border-radius: 50%;
-        @include background-image();
     }
 
     > .name {
