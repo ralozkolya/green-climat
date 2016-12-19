@@ -14,3 +14,9 @@ $lang['heating_cooling'] = "Heating, cooling, ventilation";
 
 $lang['contact_info'] = "საკონტაქტო ინფორმაცია";
 $lang['contact_us'] = "დაგვიკავშირდით";
+$lang['support_center'] = "გაუგზავნე წერილი Greenclimat-ის მომხმარებელთა მომსახურების და დახმარების ცენტრს";
+$lang['name'] = "სახელი";
+$lang['email'] = "ელ. ფოსტა";
+$lang['subject'] = "სათაური";
+$lang['message'] = "შეტყობინება";
+$lang['send'] = "გაგზავნა";

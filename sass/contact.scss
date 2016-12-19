@@ -3,33 +3,60 @@
 @import 'partials/fonts';
 
 .content {
+	padding-top: 0;
 	@media (min-width: $sm) {
-		padding-top: 0;
 		padding-bottom: $footer-height;
 	}
 }
 
 .map, .contact-info {
-	width: 50%;
+	@media (min-width: $sm) {
+		width: 50%;
+	}
 }
 
 .map {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	padding-bottom: $footer-height;
+
+	height: 250px;
 
 	> div {
 		height: 100%;
 	}
+
+	@media (min-width: $sm) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		padding-bottom: $footer-height;
+	}
 }
 
 .contact-info {
-	position: relative;
 	@include bpg-nino();
-	@include shadow();
-	margin-left: 50%;
 	padding: 20px 10px;
-	z-index: 50;
+
+	form {
+		margin: 50px 0;
+
+		label {
+			color: $light-green;
+		}
+
+		.form-control {
+			@include shadow(inset);
+		}
+
+		.btn-default {
+			@include gradient($dark-green, $light-green);
+			color: white !important;
+		}
+	}
+
+	@media (min-width: $sm) {
+		@include shadow();
+		position: relative;
+		margin-left: 50%;
+		z-index: 50;
+	}
 }

@@ -14,3 +14,9 @@ $lang['heating_cooling'] = "Heating, cooling, ventilation";
 
 $lang['contact_info'] = "Contact information";
 $lang['contact_us'] = "Contact us";
+$lang['support_center'] = "Write to Greenclimat's support center";
+$lang['name'] = "Name";
+$lang['email'] = "Email";
+$lang['subject'] = "Subject";
+$lang['message'] = "Message";
+$lang['send'] = "Send";
