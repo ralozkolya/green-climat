@@ -93,10 +93,16 @@ img {
 	}
 
 	.social {
+		opacity: .9;
 		display: inline-block;
 		width: $social-icon-width;
 		height: $social-icon-width;
 		background-image: url('../img/social.png');
+		transition: opacity .3s;
+
+		&:hover {
+			opacity: 1;
+		}
 
 		&.facebook {
 			background-position: 0 0;
