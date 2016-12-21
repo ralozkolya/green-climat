@@ -128,23 +128,8 @@ class Site extends MY_Controller {
 	}
 
 	private function get_banners() {
-		return [
-			(object) [
-				'image' => '1.jpg',
-				'link' => '',
-				'blank' => '',
-			],
-			(object) [
-				'image' => 'http://placehold.it/1400x600',
-				'link' => '',
-				'blank' => '',
-			],
-			(object) [
-				'image' => '1.jpg',
-				'link' => '',
-				'blank' => '',
-			],
-		];
+		$this->load->model('Banner');
+		return $this->Banner->get_prioritized();
 	}
 
 	private function get_top_products() {
