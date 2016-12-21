@@ -6,5 +6,4 @@
 <link rel="stylesheet" href="<?php echo static_url('css/main.css?v='.V); ?>">
 <link rel="icon" type="image/png" href="<?php echo static_url('img/favicon.png'); ?>">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="<?php echo static_url('js/general.js?v='.V); ?>"></script>
