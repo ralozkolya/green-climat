@@ -12,7 +12,7 @@
 		
 		<div class="content">
 			<h2 class="text-center">
-				<div class="yellow-header"><?php echo $page->title; ?></div>
+				<div class="green-header"><?php echo $page->title; ?></div>
 			</h2>
 			<div class="container">
 				<div class="row">
