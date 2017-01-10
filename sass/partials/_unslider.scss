@@ -2,6 +2,11 @@
 
 .unslider {
   position: relative;
+
+  @media (min-width: $md) {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .unslider-nav {
