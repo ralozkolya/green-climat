@@ -1,0 +1,90 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/fonts';
+
+.content {
+	padding-top: 0;
+	position: relative;
+
+	> .sidebar {
+		@include bpg-nino();
+		background: white;
+		padding: 30px;
+		list-style: none;
+
+		> li.active > .subcategories {
+			display: block;
+		}
+	}
+
+	@media (min-width: $sm) {
+		margin: 45px 80px 0 80px;
+
+		> .sidebar {
+			@include shadow();
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+		}
+
+		> .product-list {
+			margin-left: 350px;
+
+			> h3 {
+				@include bpg-nino();
+			}
+		}
+	}
+}
+
+.subcategories {
+	display: none;
+	list-style: none;
+}
+
+.category-link.active, .subcategory-link.active,
+li.active > a, li.active > a:hover {
+	color: $yellow;
+}
+
+.product {
+	@include shadow();
+	@include bpg-nino();
+	background: white;
+	padding: 15px;
+	color: $dark-green;
+	margin: 0 auto 20px auto;
+	max-width: 350px;
+
+	> .image {
+		@include background-image();
+		background-size: contain;
+		padding-top: 65%;
+	}
+
+	> .name {
+		margin: 15px 0;
+		height: 36px;
+		overflow: hidden;
+	}
+}
+
+.description {
+	@include shadow();
+	background: white;
+	padding: 30px;
+}
+
+.fotorama-container {
+	margin-bottom: 40px;
+}
+
+
+/* OVERRIDES */
+
+.fotorama__stage {
+	@media (min-width: $md) {
+		height: 350px !important;
+	}
+}
