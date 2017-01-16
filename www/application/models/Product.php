@@ -15,18 +15,50 @@ class Product extends MY_Model {
 		return parent::get_list();
 	}
 
-	public function join_images() {
+	public function get_localized_list($limit = NULL, $offset = NULL) {
+
+		$this->db->select('SQL_CALC_FOUND_ROWS null as rows', FALSE);
+		$this->select_localized();
+
+		$this->join_images();
+		$this->db->group_by("{$this->table}.id");
+
+		$response['data'] = parent::get_list($limit, $offset);
+		$response['rows'] = $this->db->query('SELECT FOUND_ROWS() count')->row()->count;
+
+		return $response;
+	}
+
+	public function get_localized($id) {
+
+		$this->select_localized();
+		$this->join_images();
+		return parent::get($id);
+	}
+
+	protected function join_images() {
 		$this->db->join($this->images_table,
 			"{$this->images_table}.item = {$this->table}.id", 'left');
 	}
 
+	public function get_filtered($category, $limit = NULL, $offset = NULL) {
+
+		if($category) {
+			$this->db->where('category', $category);
+		}
+		return $this->get_localized_list($limit, $offset);
+	}
+
 	private function select_localized() {
+
 		$lang = get_lang_code(get_lang());
 		$this->db->select([
 			"{$this->table}.{$lang}_name as name",
 			"{$this->table}.{$lang}_desc as desc",
 			"{$this->table}.id",
 			"{$this->table}.slug",
+			"{$this->table}.category",
+			"{$this->table}.price",
 			"{$this->images_table}.image"
 		]);
 	}

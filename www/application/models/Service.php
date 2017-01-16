@@ -6,29 +6,27 @@ class Service extends MY_Model {
 	protected $table = 'services';
 	protected $slug = 'en_title';
 	protected $images_table = 'service_images';
+	protected $images_model = 'Service_image';
 
 	public function get_localized($id) {
 		$this->select_localized();
-		$this->join();
+		$this->join_images();
 		return parent::get($id);
 	}
 
 	public function get_localized_list($limit = NULL, $offset = NULL) {
+
+		$this->db->select('SQL_CALC_FOUND_ROWS null as rows', FALSE);
 		$this->select_localized();
-		$this->join();
+
+		$this->join_images();
 		$this->db->group_by("{$this->table}.id");
 		$this->db->order_by('priority');
-		return parent::get_list($limit, $offset);
-	}
 
-	public function get_gallery($id) {
-		$this->db->where('item', $id);
-		return $this->db->get($this->images_table)->result();
-	}
+		$response['data'] = parent::get_list($limit, $offset);
+		$response['rows'] = $this->db->query('SELECT FOUND_ROWS() count')->row()->count;
 
-	private function join() {
-		$this->db->join($this->images_table,
-			"{$this->images_table}.item = {$this->table}.id", 'left');
+		return $response;
 	}
 
 	private function select_localized() {
@@ -41,7 +39,6 @@ class Service extends MY_Model {
 			"{$this->images_table}.image",
 		]);
 	}
-
 }
 
 /* End of file Service.php */

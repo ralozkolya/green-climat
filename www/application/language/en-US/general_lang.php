@@ -20,3 +20,7 @@ $lang['email'] = "Email";
 $lang['subject'] = "Subject";
 $lang['message'] = "Message";
 $lang['send'] = "Send";
+
+$lang['nothing_found'] = "Nothing found";
+$lang['price'] = "Price";
+$lang['description'] = "Description";

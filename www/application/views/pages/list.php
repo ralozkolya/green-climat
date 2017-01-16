@@ -18,7 +18,7 @@
 				<div class="row">
 					<?php foreach($items as $i): ?>
 						<?php
-							$url = "{$uploads_path}/{$i->image}";
+							$url = "{$uploads_path}/thumbs/{$i->image}";
 							$desc = mb_substr(strip_tags($i->body), 0, 100) . '...';
 						?>
 						<div class="col-sm-4 col-md-3 text-center">

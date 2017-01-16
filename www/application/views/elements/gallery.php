@@ -4,11 +4,13 @@
 	data-height="300"
 	data-arrows="false"
 	data-click="false"
-	data-fit="cover">
+	data-fit="contain">
 	<?php foreach($gallery as $g): ?>
-		<img
-			alt="<?php echo $g->image; ?>"
-			src="<?php echo "{$uploads_path}/{$g->image}"; ?>">
+		<a href="<?php echo "{$uploads_path}/{$g->image}"; ?>">
+			<img
+				alt="<?php echo $g->image; ?>"
+				src="<?php echo "{$uploads_path}/thumbs/{$g->image}"; ?>">
+		</a>
 	<?php endforeach; ?>
 </div>
 

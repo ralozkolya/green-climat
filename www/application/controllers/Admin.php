@@ -14,6 +14,9 @@ class Admin extends MY_Controller {
 		$this->load->helper('view');
 		$this->load->model([
 			'User_admin', 'Product', 'Page', 'Post', 'Banner',
+			'Post', 'Post_image', 'Partner', 'Partner_image',
+			'Project', 'Project_image', 'Service', 'Service_image',
+			'Category',
 		]);
 
 		$this->data['user'] = $this->auth->get_current_user();
@@ -56,7 +59,6 @@ class Admin extends MY_Controller {
 		$this->data['item'] = $this->get_item($type, $id);
 		$this->data['highlighted'] = 'products';
 		$this->data['categories'] = $this->Category->get_localized_list();
-		$this->data['brands'] = $this->Brand->get_localized_list();
 		$this->data['stock'] = $this->Stock->get_list();
 		$this->data['gallery'] = $this->Product_images->get_for_product($id);
 
@@ -135,52 +137,104 @@ class Admin extends MY_Controller {
 		$this->load->view('pages/admin/banner', $this->data);
 	}
 
-	public function news_list() {
+	public function news() {
 
-		$this->data['type'] = $type = 'News';
+		$this->data['type'] = $type = 'Post';
 
 		$this->modify($type);
 
 		$this->data['items'] = $this->get_items($type)['data'];
 		$this->data['highlighted'] = 'news';
 
-		$this->load->view('pages/admin/news_list', $this->data);
-	}
-
-	public function News($id) {
-
-		$this->data['type'] = $type = 'News';
-
-		$this->modify($type);
-
-		$this->data['item'] = $this->get_item($type, $id);
-		$this->data['highlighted'] = 'news';
-
 		$this->load->view('pages/admin/news', $this->data);
 	}
 
-	public function agents() {
+	public function Post($id) {
 
-		$this->data['type'] = $type = 'Agent';
-
-		$this->modify($type);
-
-		$this->data['items'] = $this->get_items($type);
-		$this->data['highlighted'] = 'agents';
-
-		$this->load->view('pages/admin/agents', $this->data);
-	}
-
-	public function Agent($id) {
-
-		$this->data['type'] = $type = 'Agent';
+		$this->data['type'] = $type = 'Post';
 
 		$this->modify($type);
 
 		$this->data['item'] = $this->get_item($type, $id);
-		$this->data['highlighted'] = 'agents';
+		$this->data['gallery'] = $this->get_gallery($type, $id);
+		$this->data['highlighted'] = 'news';
 
-		$this->load->view('pages/admin/agent', $this->data);
+		$this->load->view('pages/admin/post', $this->data);
+	}
+
+	public function partners() {
+
+		$this->data['type'] = $type = 'Partner';
+
+		$this->modify($type);
+
+		$this->data['items'] = $this->get_items($type)['data'];
+		$this->data['highlighted'] = 'partners';
+
+		$this->load->view('pages/admin/partners', $this->data);
+	}
+
+	public function Partner($id) {
+
+		$this->data['type'] = $type = 'Partner';
+
+		$this->modify($type);
+
+		$this->data['item'] = $this->get_item($type, $id);
+		$this->data['gallery'] = $this->get_gallery($type, $id);
+		$this->data['highlighted'] = 'partners';
+
+		$this->load->view('pages/admin/partner', $this->data);
+	}
+
+	public function projects() {
+
+		$this->data['type'] = $type = 'Project';
+
+		$this->modify($type);
+
+		$this->data['items'] = $this->get_items($type)['data'];
+		$this->data['highlighted'] = 'projects';
+
+		$this->load->view('pages/admin/projects', $this->data);
+	}
+
+	public function Project($id) {
+
+		$this->data['type'] = $type = 'Project';
+
+		$this->modify($type);
+
+		$this->data['item'] = $this->get_item($type, $id);
+		$this->data['gallery'] = $this->get_gallery($type, $id);
+		$this->data['highlighted'] = 'projects';
+
+		$this->load->view('pages/admin/project', $this->data);
+	}
+
+	public function services() {
+
+		$this->data['type'] = $type = 'Service';
+
+		$this->modify($type);
+
+		$this->data['items'] = $this->get_items($type)['data'];
+		$this->data['highlighted'] = 'services';
+
+		$this->load->view('pages/admin/services', $this->data);
+	}
+
+	public function Service($id) {
+
+		$this->data['type'] = $type = 'Service';
+
+		$this->modify($type);
+
+		$this->data['item'] = $this->get_item($type, $id);
+		$this->data['gallery'] = $this->get_gallery($type, $id);
+		$this->data['highlighted'] = 'services';
+
+		$this->load->view('pages/admin/service', $this->data);
 	}
 
 	public function user() {
@@ -221,8 +275,9 @@ class Admin extends MY_Controller {
 	public function add($type, $data) {
 
 		$allowed = [
-			'Banner', 'Brand', 'News',
-			'Product', 'Agent', 'Category'
+			'Banner', 'Post',
+			'Product', 'Agent', 'Category',
+			'Partner', 'Project', 'Service',
 		];
 
 		if(!$this->is_allowed($allowed, $type)) {
@@ -249,9 +304,10 @@ class Admin extends MY_Controller {
 	public function edit($type, $data) {
 
 		$allowed = [
-			'Banner', 'Page', 'Brand',
-			'News', 'Product', 'Agent',
-			'User_admin', 'Category'
+			'Banner', 'Page', 'Partner',
+			'Post', 'Product', 'Agent',
+			'User_admin', 'Category',
+			'Project', 'Service',
 		];
 
 		if(!$this->is_allowed($allowed, $type)) {
@@ -278,9 +334,11 @@ class Admin extends MY_Controller {
 	public function delete($type, $id) {
 
 		$allowed = [
-			'Banner', 'Brand', 'News',
+			'Banner', 'Post', 'Project',
 			'Product', 'Product_images',
-			'Agent', 'Category'
+			'Agent', 'Category', 'Partner',
+			'Service',
+			'Post_image', 'Partner_image', 'Service_image', 'Project_image',
 		];
 
 		if(!$this->is_allowed($allowed, $type)) {
@@ -299,7 +357,7 @@ class Admin extends MY_Controller {
 	public function add_images($type) {
 
 		$allowed = [
-			'Product_images',
+			'Post_image', 'Partner_image', 'Service_image', 'Project_image',
 		];
 
 		if(!$this->is_allowed($allowed, $type)) {
@@ -322,6 +380,7 @@ class Admin extends MY_Controller {
 
 		else {
 			$this->validation_errors();
+			$this->redirect();
 		}
 	}
 
@@ -361,6 +420,11 @@ class Admin extends MY_Controller {
 		}
 
 		return $item;
+	}
+
+	private function get_gallery($type, $id) {
+
+		return $this->$type->get_gallery($id);
 	}
 
 }

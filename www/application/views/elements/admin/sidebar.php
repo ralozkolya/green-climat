@@ -28,17 +28,6 @@
 		<li>
 			<?php
 				$class = 'unstyled';
-				if($highlighted === 'brands') {
-					$class .= ' active';
-				}
-			?>
-			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/brands'); ?>">
-				<?php echo lang('brands'); ?>
-			</a>
-		</li>
-		<li>
-			<?php
-				$class = 'unstyled';
 				if($highlighted === 'pages') {
 					$class .= ' active';
 				}
@@ -65,18 +54,41 @@
 					$class .= ' active';
 				}
 			?>
-			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/news_list'); ?>">
+			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/news'); ?>">
 				<?php echo lang('news'); ?>
 			</a>
 		</li>
+		<li>
 			<?php
 				$class = 'unstyled';
-				if($highlighted === 'agents') {
+				if($highlighted === 'partners') {
 					$class .= ' active';
 				}
 			?>
-			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/agents'); ?>">
-				<?php echo lang('agents'); ?>
+			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/partners'); ?>">
+				<?php echo lang('partners'); ?>
+			</a>
+		</li>
+		<li>
+			<?php
+				$class = 'unstyled';
+				if($highlighted === 'projects') {
+					$class .= ' active';
+				}
+			?>
+			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/projects'); ?>">
+				<?php echo lang('projects'); ?>
+			</a>
+		</li>
+		<li>
+			<?php
+				$class = 'unstyled';
+				if($highlighted === 'services') {
+					$class .= ' active';
+				}
+			?>
+			<a class="<?php echo $class; ?>" href="<?php echo base_url('admin/services'); ?>">
+				<?php echo lang('services'); ?>
 			</a>
 		</li>
 		<li>

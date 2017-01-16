@@ -54,6 +54,22 @@ class MY_Model extends CI_Model {
 		}
 
 		if($this->db->insert($this->table, $data)) {
+
+			$id = $this->db->insert_id();
+
+			if($this->images_table) {
+
+				try {
+					$model = $this->images_model;
+
+					$this->$model->add_images($id);
+				}
+
+				catch(Exception $e) {
+					//Too bad
+				}
+			}
+
 			return TRUE;
 		}
 
@@ -124,6 +140,18 @@ class MY_Model extends CI_Model {
 		return $r->result();
 	}
 
+	public function get_gallery($id) {
+
+		if($this->images_table) {
+			$this->db->where('item', $id);
+			return $this->db->get($this->images_table)->result();
+		}
+
+		else {
+			throw new Exception(lang('unexpected_error'));
+		}
+	}
+
 	public function get_localized_list($limit = NULL, $offset = NULL) {
 
 		return $this->get_list($limit, $offset);
@@ -143,19 +171,9 @@ class MY_Model extends CI_Model {
 			$_FILES['image']['error'] = $files['images']['error'][$i];
 			$_FILES['image']['size'] = $files['images']['size'][$i];
 
-			$upload = $this->upload();
+			$data['item'] = $item;
 
-			if($upload) {
-
-				$data['image'] = $upload['file_name'];
-				$data['item'] = $item;
-
-				$this->db->insert($this->table, $data);
-			}
-
-			else {
-				throw new Exception($this->upload->display_errors());
-			}
+			$this->add($data);
 		}
 	}
 
@@ -181,8 +199,6 @@ class MY_Model extends CI_Model {
 
 		$model = $this->images_model;
 
-		$this->load->model($model);
-
 		$this->db->where('item', $item);
 		$images = $this->$model->get_list();
 
@@ -190,6 +206,11 @@ class MY_Model extends CI_Model {
 
 			$this->$model->delete($i->id);
 		}
+	}
+
+	protected function join_images() {
+		$this->db->join($this->images_table,
+			"{$this->images_table}.item = {$this->table}.id", 'left');
 	}
 
 	protected function hash_password($password) {

@@ -69,7 +69,7 @@ class Site extends MY_Controller {
 	public function services() {
 		$slug = 'services';
 		$this->data['page'] = $this->get_page($slug);
-		$this->data['items'] = $this->get_list('Service');
+		$this->data['items'] = $this->get_list('Service')['data'];
 		$this->data['uploads_path'] = static_url('uploads/services');
 		$this->data['item_url'] = locale_url('service');
 		$this->data['highlighted'] = $slug;
@@ -87,7 +87,7 @@ class Site extends MY_Controller {
 	public function news() {
 		$slug = 'news';
 		$this->data['page'] = $this->get_page($slug);
-		$this->data['items'] = $this->get_list('Post');
+		$this->data['items'] = $this->get_list('Post')['data'];
 		$this->data['uploads_path'] = static_url('uploads/news');
 		$this->data['item_url'] = locale_url('post');
 		$this->data['highlighted'] = $slug;
@@ -105,7 +105,7 @@ class Site extends MY_Controller {
 	public function partners() {
 		$slug = 'partners';
 		$this->data['page'] = $this->get_page($slug);
-		$this->data['items'] = $this->get_list('Partner');
+		$this->data['items'] = $this->get_list('Partner')['data'];
 		$this->data['uploads_path'] = static_url('uploads/partners');
 		$this->data['item_url'] = locale_url('partner');
 		$this->data['highlighted'] = $slug;
@@ -123,7 +123,7 @@ class Site extends MY_Controller {
 	public function projects() {
 		$slug = 'projects';
 		$this->data['page'] = $this->get_page($slug);
-		$this->data['items'] = $this->get_list('Project');
+		$this->data['items'] = $this->get_list('Project')['data'];
 		$this->data['uploads_path'] = static_url('uploads/projects');
 		$this->data['item_url'] = locale_url('project');
 		$this->data['highlighted'] = $slug;
@@ -180,7 +180,13 @@ class Site extends MY_Controller {
 
 	private function get_item($type, $id) {
 		$this->load->model($type);
-		return $this->$type->get_localized($id);
+		$item = $this->$type->get_localized($id);
+
+		if($item) {
+			return $item;
+		}
+		
+		show_404();
 	}
 
 	private function get_gallery($type, $id) {

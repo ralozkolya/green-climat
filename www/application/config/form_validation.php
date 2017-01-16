@@ -127,7 +127,31 @@ $config['edit_Product'] = [
 	$category,
 ];
 
-$config['add_Product_images'] = [
+$config['add_Post_image'] = [
+	[
+		'field' => 'item',
+		'label' => 'lang:item',
+		'rules' => 'required|is_natural',
+	],
+];
+
+$config['add_Partner_image'] = [
+	[
+		'field' => 'item',
+		'label' => 'lang:item',
+		'rules' => 'required|is_natural',
+	],
+];
+
+$config['add_Project_image'] = [
+	[
+		'field' => 'item',
+		'label' => 'lang:item',
+		'rules' => 'required|is_natural',
+	],
+];
+
+$config['add_Service_image'] = [
 	[
 		'field' => 'item',
 		'label' => 'lang:item',
@@ -147,19 +171,56 @@ $config['edit_Banner'] = [
 	$id, $priority,
 ];
 
-$config['add_News'] = [
+$config['add_Post'] = [
 	$ka_title, $en_title, $ru_title,
-	$ka_description, $en_description, $ru_description,
 	$ka_body, $en_body, $ru_body,
-	$pinned,
+	$pinned, $priority,
 ];
 
-$config['edit_News'] = [
+$config['add_Partner'] = [
+	$ka_title, $en_title, $ru_title,
+	$ka_body, $en_body, $ru_body,
+	$pinned, $priority,
+];
+
+$config['add_Project'] = [
+	$ka_title, $en_title, $ru_title,
+	$ka_body, $en_body, $ru_body,
+	$pinned, $priority,
+];
+
+$config['add_Service'] = [
+	$ka_title, $en_title, $ru_title,
+	$ka_body, $en_body, $ru_body,
+	$pinned, $priority,
+];
+
+$config['edit_Post'] = [
 	$id,
 	$ka_title, $en_title, $ru_title,
-	$ka_description, $en_description, $ru_description,
 	$ka_body, $en_body, $ru_body,
-	$pinned,
+	$pinned, $priority,
+];
+
+$config['edit_Project'] = [
+	$id,
+	$ka_title, $en_title, $ru_title,
+	$ka_body, $en_body, $ru_body,
+	$pinned, $priority,
+];
+
+$config['edit_Partner'] = [
+	$id,
+	$ka_title, $en_title, $ru_title,
+	$ka_body, $en_body, $ru_body,
+	$pinned, $priority,
+];
+
+$config['edit_Service'] = [
+	$id,
+	$ka_title, $en_title, $ru_title,
+	$ka_body, $en_body, $ru_body,
+	$pinned, $priority,
 ];
 
 $config['edit_User_admin'] = [
