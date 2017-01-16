@@ -15,7 +15,7 @@
 </div>
 
 <script>
-	var width = $('.fotorama-container').width() / 3;
+	var width = Math.min($('.fotorama-container').width() / 3, 150);
 	$('.fotorama').attr('data-thumbwidth', width);
-	$('.fotorama').attr('data-thumbheight', width * 9 / 16);
+	$('.fotorama').attr('data-thumbheight', width * 5 / 8);
 </script>
