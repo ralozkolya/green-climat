@@ -19,8 +19,17 @@
 					<div class="col-xs-12 text-center hidden-xs">
 						<?php $this->view('elements/circles'); ?>
 					</div>
-					<div class="col-xs-12 visible-xs mobile-text">
-						<?php echo $page->body; ?>
+					<div class="col-xs-12 visible-xs mobile-text text-center">
+						<div>
+							<img alt="Logo" src="<?php echo static_url('img/logo.png'); ?>">
+							<div class="green">
+					           <div><?php echo lang('heating_cooling'); ?></div>
+					           <div><a href="<?php echo base_url(); ?>" class="unstyled">www.greenclimat.ge</a></div>
+					           <div><a href="<?php echo 'mailto:'.INFO_MAIL; ?>" class="unstyled"><?php echo INFO_MAIL; ?></a></div>
+					        </div>
+						</div>
+						<br>
+						<div class="mobile-content"><?php echo $page->body; ?></div>
 					</div>
 				</div>
 			</div>
