@@ -29,7 +29,7 @@
 						<div class="col-md-5">
 							<div class="description">
 								<h4 class="yellow-header"><?php echo lang('price'); ?></h4>
-								<div><?php echo $item->price; ?></div>
+								<div><strong><?php echo $item->price; ?> ₾</strong></div>
 								<br>
 								<h4 class="yellow-header"><?php echo lang('description'); ?></h4>
 								<div>
