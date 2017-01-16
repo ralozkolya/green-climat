@@ -31,7 +31,7 @@
 	transform: translateY(-50%);
 }
 
-@mixin background-image {
+@mixin background-image() {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -6,9 +6,7 @@
 /* OVERRIDES */
 
 .fotorama__stage {
-	@include shadow();
 	margin-bottom: 20px;
-	height: 200px !important;
 
 	@media (min-width: $md) {
 		height: 300px !important;
