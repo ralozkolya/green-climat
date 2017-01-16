@@ -21,12 +21,15 @@
 			<div class="container products">
 				<div class="row">
 					<?php foreach($top_products as $p): ?>
-						<?php $url = static_url("uploads/products/{$p->image}"); ?>
+						<?php
+							$url = locale_url("product/{$p->id}/{$p->slug}");
+							$image = static_url("uploads/products/{$p->image}");
+						?>
 						<div class="col-sm-4 col-md-3 text-center product-container">
-							<a href="#" class="unstyled">
+							<a href="<?php echo $url; ?>" class="unstyled">
 								<div class="product">
 									<div class="image"
-										style="background-image: url(<?php echo $url ?>)"></div>
+										style="background-image: url(<?php echo $image ?>)"></div>
 									<div class="name"><?php echo $p->name; ?></div>
 								</div>
 							</a>
