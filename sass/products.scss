@@ -87,10 +87,12 @@ li.active > a, li.active > a:hover {
 	@include shadow();
 	@include bpg-nino();
 	background: white;
-	padding: 15px;
+	padding: 15px 15px 5px 15px;
 	color: $dark-green;
 	margin: 0 auto 20px auto;
 	max-width: 350px;
+	border: solid 2px white;
+	transition: border-color .3s;
 
 	> .image {
 		@include background-image();
@@ -100,8 +102,13 @@ li.active > a, li.active > a:hover {
 
 	> .name {
 		margin: 15px 0;
-		height: 36px;
+		height: 43px;
+		font-size: 18px;
 		overflow: hidden;
+	}
+
+	&:hover {
+		border-color: $yellow;
 	}
 }
 
