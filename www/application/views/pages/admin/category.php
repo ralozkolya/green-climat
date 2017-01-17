@@ -42,7 +42,23 @@
 					</form>
 				</div>
 				<div class="col-sm-6">
-					
+					<h3><?php echo lang('sub_categories'); ?></h3>
+					<?php if(!empty($products)): ?>
+						<?php echo admin_table('Category', $sub_categories, [
+							'name',
+						]); ?>
+					<?php else: ?>
+						<h3 class="text-center"><?php echo lang('nothing_found'); ?></h3>
+					<?php endif; ?>
+					<br>
+					<h3><?php echo lang('products'); ?></h3>
+					<?php if(!empty($products)): ?>
+						<?php echo admin_table('Product', $products, [
+							'name',
+						]); ?>
+					<?php else: ?>
+						<h3 class="text-center"><?php echo lang('nothing_found'); ?></h3>
+					<?php endif; ?>
 				</div>
 			</div>	
 		</div>

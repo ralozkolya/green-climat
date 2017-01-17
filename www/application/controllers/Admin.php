@@ -84,8 +84,19 @@ class Admin extends MY_Controller {
 
 		$this->modify($type);
 
-		$this->data['item'] = $this->get_item($type, $id);
+		$item = $this->data['item'] = $this->get_item($type, $id);
 		$this->data['parents'] = $this->Category->get_top();
+		
+		$ids = [$item->id];
+
+		$subs = $this->Category->get_subcategories($item->id);
+
+		foreach($subs as $s) {
+			$ids[] = $s->id;
+		}
+
+		$this->data['products'] = $this->Product->get_filtered($ids)['data'];
+		$this->data['sub_categories'] = $subs;
 		$this->data['highlighted'] = 'categories';
 
 		$this->load->view('pages/admin/category', $this->data);

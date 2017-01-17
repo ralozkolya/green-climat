@@ -91,3 +91,4 @@ $lang['password_repeat'] = 'პაროლი განმეორებით
 $lang['existing_categories'] = 'არსებული კატეგორიები';
 $lang['add_category'] = 'კატეგორიის დამატება';
 $lang['parent'] = 'ზე-კატეგორია';
+$lang['sub_categories'] = 'ქვე-კატეგორიები';
