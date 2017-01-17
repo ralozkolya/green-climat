@@ -12,6 +12,7 @@ $(function(){
 	$('.ckeditor').ckeditor({
 		language: config.language,
 		filebrowserBrowseUrl: '/static/kcfinder/browse.php?opener=ckeditor&type=' + config.type,
+		filebrowserUploadUrl: '/static/kcfinder/upload.php?opener=ckeditor&type=' + config.type,
 	});
 
 	$('.multiple-upload').submit(function(){
