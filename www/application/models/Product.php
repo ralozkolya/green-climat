@@ -6,6 +6,7 @@ class Product extends MY_Model {
 	protected $table = 'products';
 	protected $slug = 'en_name';
 	protected $images_table = 'product_images';
+	protected $images_model = 'Product_image';
 
 	public function get_top() {
 		$this->select_localized();

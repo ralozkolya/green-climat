@@ -26,20 +26,20 @@ $ru_name = [
 ];
 
 $ka_description = [
-	'field' => 'ka_description',
-	'label' => 'lang:ka_description',
+	'field' => 'ka_desc',
+	'label' => 'lang:ka_desc',
 	'rules' => 'required',
 ];
 
 $en_description = [
-	'field' => 'en_description',
-	'label' => 'lang:en_description',
+	'field' => 'en_desc',
+	'label' => 'lang:en_desc',
 	'rules' => 'required',
 ];
 
 $ru_description = [
-	'field' => 'ru_description',
-	'label' => 'lang:ru_description',
+	'field' => 'ru_desc',
+	'label' => 'lang:ru_desc',
 	'rules' => 'required',
 ];
 
@@ -152,6 +152,14 @@ $config['add_Project_image'] = [
 ];
 
 $config['add_Service_image'] = [
+	[
+		'field' => 'item',
+		'label' => 'lang:item',
+		'rules' => 'required|is_natural',
+	],
+];
+
+$config['add_Product_image'] = [
 	[
 		'field' => 'item',
 		'label' => 'lang:item',

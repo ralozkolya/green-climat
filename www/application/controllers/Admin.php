@@ -16,7 +16,7 @@ class Admin extends MY_Controller {
 			'User_admin', 'Product', 'Page', 'Post', 'Banner',
 			'Post', 'Post_image', 'Partner', 'Partner_image',
 			'Project', 'Project_image', 'Service', 'Service_image',
-			'Category',
+			'Category', 'Product_image',
 		]);
 
 		$this->data['user'] = $this->auth->get_current_user();
@@ -35,7 +35,7 @@ class Admin extends MY_Controller {
 
 	public function index() {
 
-		$this->categories();
+		$this->products();
 	}
 
 	public function products() {
@@ -44,7 +44,8 @@ class Admin extends MY_Controller {
 
 		$this->modify($type);
 
-		$this->data['items'] = $this->get_items($type);
+		$this->data['items'] = $this->get_items($type)['data'];
+		$this->data['categories'] = $this->get_items('Category');
 		$this->data['highlighted'] = 'products';
 
 		$this->view('pages/admin/products');
@@ -57,10 +58,9 @@ class Admin extends MY_Controller {
 		$this->modify($type);
 
 		$this->data['item'] = $this->get_item($type, $id);
+		$this->data['categories'] = $this->get_items('Category');
+		$this->data['gallery'] = $this->get_gallery($type, $id);
 		$this->data['highlighted'] = 'products';
-		$this->data['categories'] = $this->Category->get_localized_list();
-		$this->data['stock'] = $this->Stock->get_list();
-		$this->data['gallery'] = $this->Product_images->get_for_product($id);
 
 		$this->load->view('pages/admin/product', $this->data);
 	}
@@ -335,10 +335,10 @@ class Admin extends MY_Controller {
 
 		$allowed = [
 			'Banner', 'Post', 'Project',
-			'Product', 'Product_images',
+			'Product', 'Product_image',
 			'Agent', 'Category', 'Partner',
-			'Service',
-			'Post_image', 'Partner_image', 'Service_image', 'Project_image',
+			'Service', 'Post_image',
+			'Partner_image', 'Service_image', 'Project_image',
 		];
 
 		if(!$this->is_allowed($allowed, $type)) {
@@ -357,7 +357,8 @@ class Admin extends MY_Controller {
 	public function add_images($type) {
 
 		$allowed = [
-			'Post_image', 'Partner_image', 'Service_image', 'Project_image',
+			'Post_image', 'Partner_image', 'Product_image',
+			'Service_image', 'Project_image',
 		];
 
 		if(!$this->is_allowed($allowed, $type)) {
