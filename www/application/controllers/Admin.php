@@ -35,7 +35,7 @@ class Admin extends MY_Controller {
 
 	public function index() {
 
-		$this->pages();
+		$this->categories();
 	}
 
 	public function products() {
