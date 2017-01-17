@@ -199,12 +199,12 @@ class Site extends MY_Controller {
 		return $this->Category->get($id);
 	}
 
-	private function get_category_ids($key) {
+	private function get_category_ids($slug) {
 		$this->load->model('Category');
 
 		$ids = [];
 
-		$parent = $this->Category->get_for_product($key);
+		$parent = $this->Category->get_by_key('slug', $slug);
 
 		if($parent) {
 			$ids[] = $parent->id;

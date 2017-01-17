@@ -17,16 +17,6 @@ class Category extends MY_Model {
 		return parent::get($id);
 	}
 
-	public function get_for_product($value) {
-
-		$this->select_localized();
-
-		$this->db->where('slug', $value);
-		$this->db->or_where('id', $value);
-
-		return $this->db->get($this->table)->row();
-	}
-
 	public function get_top() {
 
 		$lang = get_lang_code(get_lang());
