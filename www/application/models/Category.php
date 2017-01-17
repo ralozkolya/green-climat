@@ -152,6 +152,7 @@ class Category extends MY_Model {
 			"{$this->table}.{$lang}_name as name",
 			"{$this->table}.id",
 			"{$this->table}.slug",
+			"{$this->table}.parent",
 		]);
 	}
 

@@ -38,17 +38,12 @@ class Site extends MY_Controller {
 	public function products($page = 1) {
 
 		$slug = 'products';
-		$category = $this->get_category($this->input->get('category'));
-		$category_id = NULL;
-
-		if(!empty($category)) {
-			$category_id = $category->id;
-		}
+		$category_ids = $this->get_category_ids($this->input->get('category'));
 
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['categories'] = $this->get_categories();
-		$this->data['category'] = $this->get_category($this->input->get('category'));
-		$this->data['items'] = $this->get_products($page, $category_id)['data'];
+		$this->data['category'] = $this->get_category($category_ids[0]);
+		$this->data['items'] = $this->get_products($page, $category_ids)['data'];
 		$this->data['highlighted'] = $slug;
 
 		$this->load->view('pages/products', $this->data);
@@ -163,9 +158,9 @@ class Site extends MY_Controller {
 		return $this->Product->get_top();
 	}
 
-	private function get_products($page = 1, $category = NULL) {
+	private function get_products($page = 1, $category_ids = NULL) {
 		$this->load->model('Product');
-		return $this->Product->get_filtered($category);
+		return $this->Product->get_filtered($category_ids);
 	}
 
 	private function get_page($slug) {
@@ -199,9 +194,29 @@ class Site extends MY_Controller {
 		return $this->Category->get_list_with_subcategories();
 	}
 
-	private function get_category($key) {
+	private function get_category($id) {
 		$this->load->model('Category');
-		return $this->Category->get_for_product($key);
+		return $this->Category->get($id);
+	}
+
+	private function get_category_ids($key) {
+		$this->load->model('Category');
+
+		$ids = [];
+
+		$parent = $this->Category->get_for_product($key);
+
+		if($parent) {
+			$ids[] = $parent->id;
+
+			$subs = $this->Category->get_subcategories($parent->id);
+
+			foreach($subs as $s) {
+				$ids[] = $s->id;
+			}
+		}
+
+		return empty($ids) ? NULL : $ids;
 	}
 
 }

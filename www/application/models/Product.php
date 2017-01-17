@@ -42,11 +42,12 @@ class Product extends MY_Model {
 			"{$this->images_table}.item = {$this->table}.id", 'left');
 	}
 
-	public function get_filtered($category, $limit = NULL, $offset = NULL) {
+	public function get_filtered($categories, $limit = NULL, $offset = NULL) {
 
-		if($category) {
-			$this->db->where('category', $category);
+		if($categories) {
+			$this->db->where_in('category', $categories);
 		}
+
 		return $this->get_localized_list($limit, $offset);
 	}
 
