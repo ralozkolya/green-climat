@@ -29,3 +29,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .htaccess
 .sass-cache
 www/static/css
+www/static/uploads/.thumbs

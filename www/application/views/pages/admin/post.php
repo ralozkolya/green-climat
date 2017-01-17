@@ -2,6 +2,9 @@
 <html>
 <head>
 	<?php $this->load->view('elements/admin/head'); ?>
+	<script>
+		config.type = 'news';
+	</script>
 </head>
 <body>
 	<?php $this->load->view('elements/admin/sidebar'); ?>

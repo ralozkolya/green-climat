@@ -3,7 +3,7 @@
 <head>
 	<?php $this->load->view('elements/admin/head'); ?>
 	<script>
-		config.type = 'pages';
+		config.type = 'partners';
 	</script>
 </head>
 <body>

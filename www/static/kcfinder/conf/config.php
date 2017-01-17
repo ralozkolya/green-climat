@@ -29,8 +29,12 @@ $_CONFIG = array(
     'types' => array(
 
     // (F)CKEditor types
-        'pages'  =>  "*img",
-        'products'  =>  "*img",
+        'pages'  =>  "*",
+        'products'  =>  "*",
+        'partners'  =>  "*",
+        'services'  =>  "*",
+        'projects'  =>  "*",
+        'news'  =>  "*",
         'videos'  => "disabled",
         'files'   =>  "disabled",
         'flash'   =>  "disabled",
@@ -103,7 +107,7 @@ $_CONFIG = array(
 
     'mime_magic' => "",
 
-    'cookieDomain' => "",
+    'cookieDomain' => $_SERVER['SERVER_NAME'],
     'cookiePath' => "",
     'cookiePrefix' => 'KCFINDER_',
 

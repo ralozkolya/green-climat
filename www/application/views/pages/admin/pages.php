@@ -3,6 +3,9 @@
 <head>
 	<?php $this->load->view('elements/admin/head'); ?>
 	<link rel="stylesheet" href="<?php echo static_url('css/admin/pages.css?v='.V); ?>">
+	<script>
+		config.type = 'pages';
+	</script>
 </head>
 <body>
 	<?php $this->load->view('elements/admin/sidebar'); ?>
