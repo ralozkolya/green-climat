@@ -2,18 +2,45 @@
 @import 'partials/mixins';
 @import 'partials/fonts';
 
+h3, h4 {
+	@include bpg-nino();
+}
+
 .content {
 	padding-top: 0;
 	position: relative;
 
 	> .sidebar {
 		@include bpg-nino();
+		text-align: center;
 		background: white;
-		padding: 30px;
-		list-style: none;
+		padding: 10px;
 
-		> li.active > .subcategories {
-			display: block;
+		> .sidebar-title {
+			@include shadow();
+			margin: 0 0 10px 0;
+			padding: 10px;
+			color: $dark-green;
+
+			@media (min-width: $sm) {
+				padding: 0;
+				box-shadow: none;
+			}
+		}
+
+		> ul {
+			display: none;
+			list-style: none;
+			font-size: 18px;
+			padding: 0;
+
+			> li {
+				padding: 5px 0;
+
+				&.active > .subcategories {
+					display: block;
+				}
+			}
 		}
 	}
 
@@ -22,18 +49,21 @@
 
 		> .sidebar {
 			@include shadow();
+			text-align: left;
 			position: absolute;
+			padding: 30px;
 			top: 0;
 			left: 0;
 			width: 300px;
+
+			> ul {
+				display: block !important;
+				font-size: 14px;
+			}
 		}
 
 		> .product-list {
 			margin-left: 350px;
-
-			> h3 {
-				@include bpg-nino();
-			}
 		}
 	}
 }
@@ -41,6 +71,11 @@
 .subcategories {
 	display: none;
 	list-style: none;
+	padding: 0;
+
+	@media (min-width: $sm) {
+		padding-left: 30px;
+	}
 }
 
 .category-link.active, .subcategory-link.active,

@@ -16,23 +16,23 @@
 			<?php $this->load->view('elements/sidebar'); ?>
 
 			<div class="product-list">
-				<?php if(!empty($items)): ?>
-					<div class="container-fluid">
-						<div class="row">
-							<?php
-								$title;
-								if(!empty($category)) {
-									$title = $category->name;
-								}
+				<div class="container-fluid">
+					<div class="row">
+						<?php
+							$title;
+							if(!empty($category)) {
+								$title = $category->name;
+							}
 
-								else {
-									$title = $page->title;
-								}
-							?>
-							<div class="col-xs-12">
-								<h3 class="yellow-header"><?php echo $title; ?></h3>
-							</div>
+							else {
+								$title = $page->title;
+							}
+						?>
+						<div class="col-xs-12">
+							<h3 class="yellow-header"><?php echo $title; ?></h3>
 						</div>
+					</div>
+					<?php if(!empty($items)): ?>
 						<br>
 						<div class="row">
 							<?php foreach($items as $i): ?>
@@ -50,10 +50,10 @@
 								</div>
 							<?php endforeach; ?>
 						</div>
-					</div>
-				<?php else: ?>
-					<h3 class="text-center"><?php echo lang('nothing_found'); ?></h3>
-				<?php endif; ?>
+					<?php else: ?>
+						<h3 class="text-center"><?php echo lang('nothing_found'); ?></h3>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 

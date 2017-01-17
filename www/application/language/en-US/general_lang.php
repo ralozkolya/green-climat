@@ -21,6 +21,7 @@ $lang['subject'] = "Subject";
 $lang['message'] = "Message";
 $lang['send'] = "Send";
 
+$lang['products'] = "Products";
 $lang['nothing_found'] = "Nothing found";
 $lang['price'] = "Price";
 $lang['description'] = "Description";

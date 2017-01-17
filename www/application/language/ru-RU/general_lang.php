@@ -21,6 +21,7 @@ $lang['subject'] = "Тема";
 $lang['message'] = "Сообщение";
 $lang['send'] = "Отправить";
 
+$lang['products'] = "Продукция";
 $lang['nothing_found'] = "Не удалось ничего найти";
 $lang['price'] = "Цена";
 $lang['description'] = "Описание";
