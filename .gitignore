@@ -30,3 +30,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .sass-cache
 www/static/css
 www/static/uploads/.thumbs
+
+sftp-config.json
