@@ -33,3 +33,5 @@ www/static/uploads/.thumbs
 
 sftp-config.json
 www/google*.html
+
+www/application/vendor
