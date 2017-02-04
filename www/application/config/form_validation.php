@@ -253,3 +253,26 @@ $config['edit_Category'] = [
 	$ka_name, $en_name, $ru_name,
 	$parent, $id,
 ];
+
+$config['send_mail'] = [
+	[
+		'field' => 'name',
+		'label' => 'lang:name',
+		'rules' => 'required',
+	],
+	[
+		'field' => 'email',
+		'label' => 'lang:email',
+		'rules' => 'required|valid_email',
+	],
+	[
+		'field' => 'subject',
+		'label' => 'lang:subject',
+		'rules' => 'required',
+	],
+	[
+		'field' => 'message',
+		'label' => 'lang:message',
+		'rules' => 'required',
+	],
+];

@@ -20,6 +20,7 @@ $lang['email'] = "ელ. ფოსტა";
 $lang['subject'] = "სათაური";
 $lang['message'] = "შეტყობინება";
 $lang['send'] = "გაგზავნა";
+$lang['successfully_sent'] = "გაიგზავნა წარმატებით";
 
 $lang['products'] = "პროდუქცია";
 $lang['nothing_found'] = "ვერაფერი მოიძებნა";

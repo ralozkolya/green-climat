@@ -134,6 +134,11 @@ class Site extends MY_Controller {
 	}
 
 	public function contact() {
+
+		if($this->input->post()) {
+			$this->send_mail();
+		}
+
 		$slug = 'contact';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['highlighted'] = $slug;
@@ -225,6 +230,29 @@ class Site extends MY_Controller {
 		}
 
 		return empty($ids) ? NULL : $ids;
+	}
+
+
+	/*	HELPERS	*/
+
+	private function send_mail() {
+
+		$this->load->helper(['email_sender', 'purifier']);
+		$this->load->library('form_validation');
+
+		if(!$this->input->post()) {
+			$this->data['error_message'] = lang('unexpected_error');
+		}
+
+		if($this->form_validation->run('send_mail')) {
+			send_message($this->input->post());
+			$this->session->set_flashdata('success_message', lang('successfully_sent'));
+			redirect($this->agent->referrer());
+		}
+
+		else {
+			$this->data['error_message'] = validation_errors('<div>', '</div>');
+		}
 	}
 
 }

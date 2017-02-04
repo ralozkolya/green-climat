@@ -48,22 +48,23 @@
 						</div>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1">
-						<form class="text-left contact-form">
+						<?php $this->load->view('elements/messages'); ?>
+						<form class="text-left contact-form" method="post">
 							<div class="form-group">
 								<label for="name"><?php echo lang('name'); ?></label>
-								<input class="form-control" id="name" name="name">
+								<input class="form-control" id="name" name="name" required>
 							</div>
 							<div class="form-group">
 								<label for="email"><?php echo lang('email'); ?></label>
-								<input class="form-control" id="email" name="email">
+								<input class="form-control" id="email" name="email" required>
 							</div>
 							<div class="form-group">
 								<label for="subject"><?php echo lang('subject'); ?></label>
-								<input class="form-control" id="subject" name="subject">
+								<input class="form-control" id="subject" name="subject" required>
 							</div>
 							<div class="form-group">
 								<label for="message"><?php echo lang('message'); ?></label>
-								<textarea rows="6" class="form-control" id="message" name="message"></textarea>
+								<textarea rows="6" class="form-control" id="message" name="message" required></textarea>
 							</div>
 							<div class="form-group text-center">
 								<input class="btn btn-default" type="submit"
