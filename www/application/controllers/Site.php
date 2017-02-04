@@ -140,6 +140,14 @@ class Site extends MY_Controller {
 		$this->view('pages/contact');
 	}
 
+	public function sitemap() {
+
+		header('Content-Type: text/xml; charset="utf-8"');
+		$this->load->model('Product');
+		$this->data['products'] = $this->Product->get_list();
+		$this->load->view('xml/sitemap', $this->data);
+	}
+
 
 	/*	PULLERS	*/
 
