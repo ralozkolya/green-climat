@@ -28,6 +28,8 @@
 						</div>
 						<div class="col-md-5">
 							<div class="description">
+								<h3 class="yellow-header"><?php echo $item->name; ?></h3>
+								<br>
 								<h4 class="yellow-header"><?php echo lang('price'); ?></h4>
 								<div><strong><?php echo $item->price; ?> ₾</strong></div>
 								<br>
