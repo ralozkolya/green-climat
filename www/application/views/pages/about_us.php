@@ -24,7 +24,7 @@
 							<img alt="Logo" src="<?php echo static_url('img/logo.png'); ?>">
 							<div class="green">
 					           <div><?php echo lang('heating_cooling'); ?></div>
-					           <div><a href="<?php echo base_url(); ?>" class="unstyled">www.greenclimat.ge</a></div>
+					           <div><a href="<?php echo base_url(); ?>" class="unstyled">www.greenclimat.com</a></div>
 					           <div><a href="<?php echo 'mailto:'.INFO_MAIL; ?>" class="unstyled"><?php echo INFO_MAIL; ?></a></div>
 					        </div>
 						</div>
