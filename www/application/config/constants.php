@@ -89,7 +89,7 @@ define('EN', 'en-US');
 define('GE', 'ka-GE');
 define('RU', 'ru-RU');
 
-define('V', 7);
+define('V', 8);
 
 $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443;
 $protocol = $secure ? 'https://' : 'http://';
