@@ -51,6 +51,24 @@ class Product extends MY_Model {
 		return $this->get_localized_list($limit, $offset);
 	}
 
+	public function add($data) {
+
+		if(empty($data['top'])) {
+			$data['top'] = 0;
+		}
+
+		return parent::add($data);
+	}
+
+	public function edit($data) {
+
+		if(empty($data['top'])) {
+			$data['top'] = 0;
+		}
+
+		return parent::edit($data);
+	}
+
 	private function select_localized() {
 
 		$lang = get_lang_code(get_lang());
