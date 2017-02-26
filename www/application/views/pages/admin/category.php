@@ -30,6 +30,7 @@
 								['name' => 'en_name', 'value' => $item->en_name],
 								['name' => 'ru_name', 'value' => $item->ru_name],
 								['name' => 'parent', 'value' => $parents, 'type' => 'select'],
+								['name' => 'image', 'type' => 'file'],
 								['value' => lang('change'), 'type' => 'submit'],
 							];
 
@@ -42,6 +43,9 @@
 					</form>
 				</div>
 				<div class="col-sm-6">
+					<h3><?php echo lang('image'); ?></h3>
+					<?php $image = image_exists($item->image, 'static/uploads/categories/'); ?>
+					<img src="<?php echo $image; ?>" alt="Image">
 					<h3><?php echo lang('sub_categories'); ?></h3>
 					<?php if(!empty($products)): ?>
 						<?php echo admin_table('Category', $sub_categories, [

@@ -35,6 +35,7 @@
 								['name' => 'en_name', 'value' => set_value('en_name')],
 								['name' => 'ru_name', 'value' => set_value('ru_name')],
 								['name' => 'parent', 'value' => $parents, 'type' => 'select'],
+								['name' => 'image', 'type' => 'file'],
 								['type' => 'submit', 'value' => lang('add')],
 							];
 

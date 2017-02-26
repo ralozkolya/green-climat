@@ -11,7 +11,7 @@ class Admin extends MY_Controller {
 
 		$this->load->language('admin');
 		$this->load->library(['Auth_admin' => 'auth', 'form_validation']);
-		$this->load->helper('view');
+		$this->load->helper(['view', 'no_image']);
 		$this->load->model([
 			'User_admin', 'Product', 'Page', 'Post', 'Banner',
 			'Post', 'Post_image', 'Partner', 'Partner_image',

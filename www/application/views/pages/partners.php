@@ -18,8 +18,8 @@
 				<div class="row">
 					<?php foreach($items as $i): ?>
 						<?php
-							$url = "{$uploads_path}/thumbs/{$i->image}";
 							$link = $i->link ? $i->link : '#';
+							$image = image_exists($i->image, 'static/uploads/partners/thumbs/');
 						?>
 						<div class="col-sm-4 col-md-3 text-center">
 							<a class="unstyled"
@@ -27,7 +27,7 @@
 								href="<?php echo $link; ?>">
 								<div class="item">
 									<div class="image"
-										style="background-image: url(<?php echo $url; ?>)"></div>
+										style="background-image: url(<?php echo $image; ?>)"></div>
 									<div class="title"><?php echo $i->title; ?></div>
 								</div>
 							</a>

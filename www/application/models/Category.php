@@ -3,8 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Category extends MY_Model {
 
+	protected $upload_path = 'static/uploads/categories/';
+	protected $thumbs_path = 'static/uploads/categories/thumbs/';
+
 	protected $table = 'categories';
 	protected $slug = 'en_name';
+	protected $with_image = TRUE;
 
 	public function get($id) {
 
@@ -53,7 +57,7 @@ class Category extends MY_Model {
 
 		$this->db->select(array(
 			$lang.'_name as name',
-			'id', 'parent', 'slug',
+			'id', 'parent', 'slug', 'image',
 		));
 
 		$r = parent::get_list();
@@ -63,7 +67,7 @@ class Category extends MY_Model {
 
 			$this->db->select(array(
 				$lang.'_name as name',
-				'id', 'parent', 'slug',
+				'id', 'parent', 'slug', 'image',
 			));
 			
 			$s->sub = $this->db->get($this->table)->result();
@@ -143,6 +147,7 @@ class Category extends MY_Model {
 			"{$this->table}.id",
 			"{$this->table}.slug",
 			"{$this->table}.parent",
+			"{$this->table}.image",
 		]);
 	}
 

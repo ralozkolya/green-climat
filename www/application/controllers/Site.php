@@ -6,6 +6,7 @@ class Site extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->language('general');
+		$this->load->helper('no_image');
 		$this->data['navigation'] = $this->get_navigation();
 	}
 
@@ -41,9 +42,19 @@ class Site extends MY_Controller {
 		$category_ids = $this->get_category_ids($this->input->get('category'));
 
 		$this->data['page'] = $this->get_page($slug);
-		$this->data['categories'] = $this->get_categories();
-		$this->data['category'] = $this->get_category($category_ids[0]);
-		$this->data['items'] = $this->get_products($page, $category_ids)['data'];
+
+		if(!empty($category_ids)) {
+			$this->data['categories'] = $this->get_categories();
+			$this->data['category'] = $this->get_category($category_ids[0]);
+			$this->data['items'] = $this->get_products($page, $category_ids)['data'];
+			$this->data['category_list'] = FALSE;
+		}
+
+		else {
+			$this->data['categories'] = $this->get_categories();
+			$this->data['category_list'] = TRUE;
+		}
+
 		$this->data['highlighted'] = $slug;
 
 		$this->load->view('pages/products', $this->data);
@@ -65,7 +76,7 @@ class Site extends MY_Controller {
 		$slug = 'services';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['items'] = $this->get_list('Service')['data'];
-		$this->data['uploads_path'] = static_url('uploads/services');
+		$this->data['uploads_path'] = 'services';
 		$this->data['item_url'] = locale_url('service');
 		$this->data['highlighted'] = $slug;
 		$this->view('pages/list');
@@ -83,7 +94,7 @@ class Site extends MY_Controller {
 		$slug = 'news';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['items'] = $this->get_list('Post')['data'];
-		$this->data['uploads_path'] = static_url('uploads/news');
+		$this->data['uploads_path'] = 'news';
 		$this->data['item_url'] = locale_url('post');
 		$this->data['highlighted'] = $slug;
 		$this->view('pages/list');
@@ -101,7 +112,7 @@ class Site extends MY_Controller {
 		$slug = 'partners';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['items'] = $this->get_list('Partner')['data'];
-		$this->data['uploads_path'] = static_url('uploads/partners');
+		$this->data['uploads_path'] = 'partners';
 		$this->data['item_url'] = locale_url('partner');
 		$this->data['highlighted'] = $slug;
 		$this->view('pages/partners');
@@ -119,7 +130,7 @@ class Site extends MY_Controller {
 		$slug = 'projects';
 		$this->data['page'] = $this->get_page($slug);
 		$this->data['items'] = $this->get_list('Project')['data'];
-		$this->data['uploads_path'] = static_url('uploads/projects');
+		$this->data['uploads_path'] = 'projects';
 		$this->data['item_url'] = locale_url('project');
 		$this->data['highlighted'] = $slug;
 		$this->view('pages/list');

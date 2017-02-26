@@ -47,7 +47,8 @@
 				</div>
 				<div class="col-sm-6">
 					<h3><?php echo lang('image'); ?></h3>
-					<img src="<?php echo static_url("uploads/partners/{$item->image}"); ?>" alt="Image">
+					<?php $image = image_exists($item->image, 'static/uploads/partners/'); ?>
+					<img src="<?php echo $image; ?>" alt="Image">
 				</div>
 			</div>	
 		</div>

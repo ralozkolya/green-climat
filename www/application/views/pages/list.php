@@ -18,7 +18,7 @@
 				<div class="row">
 					<?php foreach($items as $i): ?>
 						<?php
-							$url = "{$uploads_path}/thumbs/{$i->image}";
+							$image = image_exists($i->image, "static/uploads/{$uploads_path}/thumbs/");
 							$desc = mb_substr(strip_tags($i->body), 0, 100) . '...';
 						?>
 						<div class="col-sm-4 col-md-3 text-center">
@@ -26,7 +26,7 @@
 								href="<?php echo "{$item_url}/{$i->id}/{$i->slug}"; ?>">
 								<div class="item">
 									<div class="image"
-										style="background-image: url(<?php echo $url; ?>)"></div>
+										style="background-image: url(<?php echo $image; ?>)"></div>
 									<div class="title"><?php echo $i->title; ?></div>
 									<div class="desc"><?php echo $desc; ?></div>
 								</div>
