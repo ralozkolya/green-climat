@@ -104,7 +104,7 @@ class Site extends MY_Controller {
 		$this->data['uploads_path'] = static_url('uploads/partners');
 		$this->data['item_url'] = locale_url('partner');
 		$this->data['highlighted'] = $slug;
-		$this->view('pages/list');
+		$this->view('pages/partners');
 	}
 
 	public function partner($id) {

@@ -31,9 +31,8 @@
 								['name' => 'ka_title', 'value' => $item->ka_title],
 								['name' => 'en_title', 'value' => $item->en_title],
 								['name' => 'ru_title', 'value' => $item->ru_title],
-								['name' => 'ka_body', 'type' => 'ckeditor', 'value' => $item->ka_body],
-								['name' => 'en_body', 'type' => 'ckeditor', 'value' => $item->en_body],
-								['name' => 'ru_body', 'type' => 'ckeditor', 'value' => $item->ru_body],
+								['name' => 'link', 'value' => $item->link],
+								['name' => 'image', 'type' => 'file'],
 								['name' => 'priority', 'value' => set_value('priority')],
 								['type' => 'submit', 'value' => lang('change')],
 							];
@@ -47,43 +46,8 @@
 					</form>
 				</div>
 				<div class="col-sm-6">
-					<h3><?php echo lang('gallery'); ?></h3>
-					<form action="<?php echo base_url('admin/add_images/Partner_image'); ?>"
-						method="post"
-						enctype="multipart/form-data">
-						<?php
-							$fields = [
-								[
-									'name' => 'item',
-									'value' => $item->id,
-									'type' => 'hidden',
-								],
-								[
-									'name' => 'images',
-									'type' => 'files',
-								],
-								[
-									'value' => lang('upload'),
-									'type' => 'submit',
-								],
-							];
-
-							$form = form_fields($fields);
-
-							foreach($form as $f) {
-								echo $f;
-							}
-						?>
-					</form>
-					<br>
-					<?php foreach($gallery as $g): ?>
-						<div class="thumb">
-							<img alt="<?php echo $g->image; ?>" src="<?php echo static_url('uploads/partners/thumbs/'.$g->image); ?>">
-							<a href="<?php echo base_url('admin/delete/Partner_image/'.$g->id); ?>" class="unstyled delete">
-								<span class="glyphicon glyphicon-remove"></span>
-							</a>
-						</div>
-					<?php endforeach; ?>
+					<h3><?php echo lang('image'); ?></h3>
+					<img src="<?php echo static_url("uploads/partners/{$item->image}"); ?>" alt="Image">
 				</div>
 			</div>	
 		</div>

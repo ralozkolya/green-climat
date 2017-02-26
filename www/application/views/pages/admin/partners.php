@@ -37,11 +37,9 @@
 								['name' => 'ka_title', 'value' => set_value('ka_title')],
 								['name' => 'en_title', 'value' => set_value('en_title')],
 								['name' => 'ru_title', 'value' => set_value('ru_title')],
-								['name' => 'ka_body', 'type' => 'ckeditor', 'value' => set_value('ka_body')],
-								['name' => 'en_body', 'type' => 'ckeditor', 'value' => set_value('en_body')],
-								['name' => 'ru_body', 'type' => 'ckeditor', 'value' => set_value('ru_body')],
+								['name' => 'link', 'value' => set_value('link')],
 								['name' => 'priority', 'value' => set_value('priority')],
-								['name' => 'images', 'type' => 'files'],
+								['name' => 'image', 'type' => 'file'],
 								['type' => 'submit', 'value' => lang('add')],
 							];
 

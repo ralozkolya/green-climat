@@ -192,7 +192,6 @@ class Admin extends MY_Controller {
 		$this->modify($type);
 
 		$this->data['item'] = $this->get_item($type, $id);
-		$this->data['gallery'] = $this->get_gallery($type, $id);
 		$this->data['highlighted'] = 'partners';
 
 		$this->load->view('pages/admin/partner', $this->data);

@@ -3,14 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Partner extends MY_Model {
 
+	protected $upload_path = 'static/uploads/partners/';
+	protected $thumbs_path = 'static/uploads/partners/thumbs/';
+
 	protected $table = 'partners';
 	protected $slug = 'en_title';
-	protected $images_table = 'partner_images';
-	protected $images_model = 'Partner_image';
+	protected $with_image = TRUE;
 
 	public function get_localized($id) {
 		$this->select_localized();
-		$this->join_images();
 		return parent::get($id);
 	}
 
@@ -19,7 +20,6 @@ class Partner extends MY_Model {
 		$this->db->select('SQL_CALC_FOUND_ROWS null as rows', FALSE);
 		$this->select_localized();
 
-		$this->join_images();
 		$this->db->group_by("{$this->table}.id");
 		$this->db->order_by('priority');
 
@@ -33,10 +33,10 @@ class Partner extends MY_Model {
 		$lang = get_lang_code(get_lang());
 		$this->db->select([
 			"{$this->table}.{$lang}_title as title",
-			"{$this->table}.{$lang}_body as body",
 			"{$this->table}.id",
 			"{$this->table}.slug",
-			"{$this->images_table}.image",
+			"{$this->table}.link",
+			"{$this->table}.image",
 		]);
 	}
 }

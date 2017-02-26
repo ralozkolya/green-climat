@@ -187,7 +187,6 @@ $config['add_Post'] = [
 
 $config['add_Partner'] = [
 	$ka_title, $en_title, $ru_title,
-	$ka_body, $en_body, $ru_body,
 	$pinned, $priority,
 ];
 
@@ -220,7 +219,6 @@ $config['edit_Project'] = [
 $config['edit_Partner'] = [
 	$id,
 	$ka_title, $en_title, $ru_title,
-	$ka_body, $en_body, $ru_body,
 	$pinned, $priority,
 ];
 
