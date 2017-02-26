@@ -12,7 +12,7 @@
 <?php if(empty($item)): ?>
 	<meta property="og:title" content="Green Climat">
 <?php else: ?>
-	<?php $title = $item->name ? $item->name : $item->title; ?>
+	<?php $title = @$item->name ? $item->name : $item->title; ?>
 	<meta property="og:title" content="<?php echo $title; ?>">
 <?php endif; ?>
 <?php if(empty($gallery)): ?>
